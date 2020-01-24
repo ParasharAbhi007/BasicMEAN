@@ -1,0 +1,25 @@
+{
+  "name": "spamean",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "abhinandan"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "font-awesome": "^5.12.0",
+    "animate.css": "^3.7.2",
+    "angular": "^1.7.9",
+    "angular-route": "^1.7.9"
+  }
+}
