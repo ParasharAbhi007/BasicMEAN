@@ -1,0 +1,26 @@
+template:
+  name: shellcustom
+  identifier: shellcustom
+  versionLabel: "1"
+  type: Step
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      onDelegate: true
+      source:
+        type: Inline
+        spec:
+          script: echo test
+      environmentVariables:
+        - name: test1
+          type: String
+          value: <+input>
+        - name: test2
+          type: String
+          value: <+input>
+      outputVariables: []
