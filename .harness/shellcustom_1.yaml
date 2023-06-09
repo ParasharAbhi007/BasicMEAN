@@ -20,7 +20,7 @@ template:
         - name: test1
           type: String
           value: <+input>
-        - name: test2
+        - name: test3
           type: String
           value: <+input>
       outputVariables: []
