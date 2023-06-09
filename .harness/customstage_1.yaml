@@ -1,0 +1,30 @@
+template:
+  name: customstage
+  identifier: customstage
+  versionLabel: "1"
+  type: Stage
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              type: ShellScript
+              name: ShellScript_1
+              identifier: ShellScript_1
+              timeout: 10m
+              spec:
+                shell: Bash
+                onDelegate: true
+                source:
+                  type: Inline
+                  spec:
+                    script: echo "test"
+                environmentVariables:
+                  - name: test
+                    type: String
+                    value: <+input>
+                outputVariables: []
