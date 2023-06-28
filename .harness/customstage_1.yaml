@@ -27,7 +27,7 @@ template:
                       git clone git@ghe.coxautoinc.com:XTime/eks-deployment.git
                       cd eks-deployment
                       cd <+variable.org.testvar>
-                      cd <+variable.EKS_CLUSTER_NAME>
+                      cd <+variable.test123>
                       ls
                 environmentVariables:
                   - name: test
