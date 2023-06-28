@@ -22,7 +22,13 @@ template:
                 source:
                   type: Inline
                   spec:
-                    script: echo "test"
+                    script: |
+                      echo "kubernetes cluster name: "<+variable.EKS_CLUSTER_NAME>  
+                      git clone git@ghe.coxautoinc.com:XTime/eks-deployment.git
+                      cd eks-deployment
+                      cd <+variable.org.NONPROD_TG_PARENT_PATH>
+                      cd <+variable.EKS_CLUSTER_NAME>
+                      ls
                 environmentVariables:
                   - name: test
                     type: String
