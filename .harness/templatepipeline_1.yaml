@@ -31,6 +31,12 @@ template:
                       outputVariables: []
                     timeout: 10m
           tags: {}
+          variables:
+            - name: terst
+              type: String
+              description: ""
+              required: false
+              value: var
       - stage:
           name: test2
           identifier: test2
