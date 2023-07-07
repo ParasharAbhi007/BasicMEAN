@@ -27,16 +27,14 @@ template:
                         type: Inline
                         spec:
                           script: echo "hi"
-                      environmentVariables: []
+                      environmentVariables:
+                        - name: tf_scan
+                          type: String
+                          value: <+input>.default(false).allowedValues(true,false)
                       outputVariables: []
                     timeout: 10m
           tags: {}
-          variables:
-            - name: terst
-              type: String
-              description: ""
-              required: false
-              value: <+input>
+          variables: []
       - stage:
           name: test2
           identifier: test2
