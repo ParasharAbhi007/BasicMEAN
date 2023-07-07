@@ -31,3 +31,26 @@ template:
                       outputVariables: []
                     timeout: 10m
           tags: {}
+      - stage:
+          name: test2
+          identifier: test2
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      onDelegate: true
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo "hey"
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+          tags: {}
