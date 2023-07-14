@@ -30,7 +30,7 @@ template:
                       environmentVariables:
                         - name: tf_scan
                           type: String
-                          value: <+input>.allowedValues(true,false)
+                          value: <+input>.default(true).allowedValues(true,false)
                       outputVariables: []
                     timeout: 10m
           tags: {}
