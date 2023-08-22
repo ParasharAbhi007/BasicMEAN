@@ -1,0 +1,9 @@
+pipeline:
+  name: accounttemp
+  identifier: accounttemp
+  template:
+    templateRef: account.tempacc
+    versionLabel: 6.2.2
+  tags: {}
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
