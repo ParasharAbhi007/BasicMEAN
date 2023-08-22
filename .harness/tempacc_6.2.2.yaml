@@ -1,0 +1,31 @@
+template:
+  name: tempacc
+  identifier: tempacc
+  versionLabel: 6.2.2
+  type: Pipeline
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: test
+          identifier: test
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      onDelegate: true
+                      source:
+                        type: Inline
+                        spec:
+                          script: hey
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+          tags: {}
