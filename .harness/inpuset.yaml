@@ -1,0 +1,36 @@
+pipeline:
+  name: inpuset
+  identifier: inpuset
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  stages:
+    - stage:
+        name: custom
+        identifier: custom
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: ex
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
+  variables:
+    - name: test
+      type: String
+      description: ""
+      required: false
+      value: <+input>
