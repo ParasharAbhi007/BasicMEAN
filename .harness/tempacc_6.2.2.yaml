@@ -29,3 +29,9 @@ template:
                       outputVariables: []
                     timeout: 10m
           tags: {}
+    variables:
+      - name: test
+        type: String
+        description: ""
+        required: false
+        value: <+input>
