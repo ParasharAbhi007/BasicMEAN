@@ -1,5 +1,6 @@
 inputSet:
   name: sets
+  tags: {}
   identifier: sets
   orgIdentifier: AbhiOrg
   projectIdentifier: CSETest1
