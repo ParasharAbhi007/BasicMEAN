@@ -1,0 +1,13 @@
+inputSet:
+  name: sets
+  identifier: sets
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
+  pipeline:
+    identifier: accounttemp
+    template:
+      templateInputs:
+        variables:
+          - name: test
+            type: String
+            value: dee
