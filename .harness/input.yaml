@@ -10,5 +10,5 @@ inputSet:
         variables:
           - name: test
             type: String
-            value: re
+            value: res
 
