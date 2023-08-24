@@ -1,0 +1,11 @@
+inputSet:
+  name: test11
+  identifier: test11
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
+  pipeline:
+    identifier: inpuset
+    variables:
+      - name: test
+        type: String
+        value: se
