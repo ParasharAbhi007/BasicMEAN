@@ -7,35 +7,6 @@ template:
   spec:
     stages:
       - stage:
-          name: test
-          identifier: test
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    type: ShellScript
-                    name: ShellScript_1
-                    identifier: ShellScript_1
-                    spec:
-                      shell: Bash
-                      onDelegate: true
-                      source:
-                        type: Inline
-                        spec:
-                          script: hey
-                      environmentVariables: []
-                      outputVariables: []
-                    timeout: 10m
-          tags: {}
-          failureStrategies:
-            - onFailure:
-                errors:
-                  - AllErrors
-                action:
-                  type: MarkAsFailure
-      - stage:
           name: ddew
           identifier: ddew
           description: ""
