@@ -4,11 +4,6 @@ pipeline:
   template:
     templateRef: account.tempacc
     versionLabel: 6.2.2
-    templateInputs:
-      variables:
-        - name: test
-          type: String
-          value: <+input>
   tags: {}
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
