@@ -23,9 +23,8 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: |-
+                        script: |
                           echo Y2QwNGM2MmI2YTRhMzdhMGQ4MWJkNjJlMTFlMmUwZjM=
-                          echo <+secrets.getValue("pattoken")>
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
