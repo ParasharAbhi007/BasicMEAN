@@ -25,7 +25,7 @@ pipeline:
                       spec:
                         script: |-
                           echo Y2QwNGM2MmI2YTRhMzdhMGQ4MWJkNjJlMTFlMmUwZjM=
-                          echo <+secret.getValue.pattoken>
+                          echo <+secrets.getValue("pattoken")>
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
