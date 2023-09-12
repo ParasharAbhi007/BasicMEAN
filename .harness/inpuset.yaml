@@ -29,4 +29,10 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
+              - step:
+                  name: shell
+                  identifier: shell
+                  template:
+                    templateRef: account.shell3
+                    versionLabel: "1.0"
         tags: {}
