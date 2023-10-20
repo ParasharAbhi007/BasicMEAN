@@ -1,0 +1,20 @@
+template:
+  name: maven
+  identifier: maven
+  versionLabel: "0"
+  type: Step
+  tags: {}
+  spec:
+    timeout: 10m
+    type: Command
+    spec:
+      onDelegate: false
+      environmentVariables: []
+      outputVariables: []
+      commandUnits:
+        - identifier: tgvh
+          name: tgvh
+          type: Copy
+          spec:
+            sourceType: Artifact
+            destinationPath: m
