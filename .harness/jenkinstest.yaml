@@ -20,7 +20,7 @@ pipeline:
                         jobParameter:
                           - name: test2
                             type: String
-                            value: <+input>
+                            value: ""
   tags: {}
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
