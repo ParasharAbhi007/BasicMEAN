@@ -1,0 +1,10 @@
+pipeline:
+  name: jenkinstest
+  identifier: jenkinstest
+  template:
+    templateRef: jenkinstest
+    versionLabel: "1"
+    gitBranch: main
+  tags: {}
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
