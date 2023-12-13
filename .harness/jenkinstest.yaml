@@ -5,22 +5,6 @@ pipeline:
     templateRef: jenkinstest
     versionLabel: "1"
     gitBranch: main
-    templateInputs:
-      stages:
-        - stage:
-            identifier: test
-            type: Deployment
-            spec:
-              execution:
-                steps:
-                  - step:
-                      identifier: JenkinsBuild_1
-                      type: JenkinsBuild
-                      spec:
-                        jobParameter:
-                          - name: test2
-                            type: String
-                            value: ""
   tags: {}
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
