@@ -38,6 +38,20 @@ pipeline:
                         type: String
                         value: test
                   timeout: 10m
+              - step:
+                  type: ShellScript
+                  name: ShellScript_2
+                  identifier: ShellScript_2
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo <+pipeline.stages.deploy.spec.execution.steps.ShellScript_1.output.outputVariables.test>
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
             rollbackSteps: []
         tags: {}
         failureStrategies:
