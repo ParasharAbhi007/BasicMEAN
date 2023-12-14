@@ -74,7 +74,9 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo <+pipeline.stages.deploy.spec.execution.steps.ShellScript_1.output.outputVariables.test>
+                        script: |-
+                          echo <+pipeline.stages.deploy.spec.execution.steps.ShellScript_1.output.outputVariables.test>
+                          echo <+pipeline.stages.deploy.spec.execution.steps.Http_1.output.status>
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
