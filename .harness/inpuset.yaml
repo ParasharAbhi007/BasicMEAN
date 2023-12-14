@@ -39,6 +39,17 @@ pipeline:
                         value: test
                   timeout: 10m
               - step:
+                  type: Http
+                  name: Http_1
+                  identifier: Http_1
+                  spec:
+                    url: https://www.google.com/
+                    method: GET
+                    headers: []
+                    inputVariables: []
+                    outputVariables: []
+                  timeout: 10s
+              - step:
                   type: ShellScript
                   name: ShellScript_2
                   identifier: ShellScript_2
@@ -52,17 +63,6 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
-              - step:
-                  type: Http
-                  name: Http_1
-                  identifier: Http_1
-                  spec:
-                    url: https://www.google.com/
-                    method: GET
-                    headers: []
-                    inputVariables: []
-                    outputVariables: []
-                  timeout: 10s
             rollbackSteps:
               - step:
                   type: ShellScript
