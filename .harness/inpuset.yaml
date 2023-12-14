@@ -73,7 +73,7 @@ pipeline:
               errors:
                 - AllErrors
               action:
-                type: MarkAsFailure
+                type: StageRollback
   variables:
     - name: test
       type: String
