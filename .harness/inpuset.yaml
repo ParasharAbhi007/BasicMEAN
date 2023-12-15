@@ -87,6 +87,44 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: test
+        identifier: test
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: k8service
+          environment:
+            environmentRef: test123
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: test
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "hey"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: MarkAsFailure
   variables:
     - name: test
       type: String
