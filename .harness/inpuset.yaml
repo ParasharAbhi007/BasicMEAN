@@ -15,10 +15,10 @@ pipeline:
           service:
             serviceRef: k8service
           environment:
-            environmentRef: K8Env
+            environmentRef: test12
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: K8INFRA
+              - identifier: test
           execution:
             steps:
               - step:
