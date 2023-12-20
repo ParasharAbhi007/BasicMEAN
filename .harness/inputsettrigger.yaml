@@ -1,0 +1,24 @@
+inputSet:
+  name: inputsettrigger
+  identifier: inputsettrigger
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
+  pipeline:
+    identifier: jenkinstest
+    template:
+      templateInputs:
+        stages:
+          - stage:
+              identifier: test
+              type: Deployment
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: JenkinsBuild_1
+                        type: JenkinsBuild
+                        spec:
+                          jobParameter:
+                            - name: test2
+                              type: String
+                              value: test
