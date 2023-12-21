@@ -65,6 +65,9 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
+                  when:
+                    stageStatus: All
+                    condition: <+stage.identifier>=="deploy"
         tags: {}
         failureStrategies:
           - onFailure:
