@@ -31,7 +31,9 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: test=test
+                        script: |-
+                          echo <+stage.identifier>
+                          exit 1
                     environmentVariables: []
                     outputVariables:
                       - name: test
@@ -62,70 +64,6 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
-    - stage:
-        name: test
-        identifier: test
-        description: ""
-        type: Deployment
-        spec:
-          deploymentType: Kubernetes
-          service:
-            serviceRef: k8service
-          environment:
-            environmentRef: test123
-            deployToAll: false
-            infrastructureDefinitions:
-              - identifier: test
-          execution:
-            steps:
-              - step:
-                  type: ShellScript
-                  name: ShellScript_1
-                  identifier: ShellScript_1
-                  spec:
-                    shell: Bash
-                    onDelegate: true
-                    source:
-                      type: Inline
-                      spec:
-                        script: echo "hey"
-                    environmentVariables: []
-                    outputVariables: []
-                  timeout: 10m
-            rollbackSteps: []
-        tags: {}
-        failureStrategies:
-          - onFailure:
-              errors:
-                - AllErrors
-              action:
-                type: MarkAsFailure
-    - stage:
-        name: ci
-        identifier: ci
-        description: ""
-        type: CI
-        spec:
-          cloneCodebase: false
-          infrastructure:
-            type: KubernetesDirect
-            spec:
-              connectorRef: AbhiAzure
-              namespace: abhinandan
-              automountServiceAccountToken: true
-              nodeSelector: {}
-              os: Linux
-          execution:
-            steps:
-              - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
-                  spec:
-                    connectorRef: DockerTestk8
-                    image: nginx
-                    shell: Sh
-                    command: env
   variables:
     - name: test
       type: String
