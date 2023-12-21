@@ -13,7 +13,7 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: k8service
+            serviceRef: bluegreenservice
             serviceInputs:
               serviceDefinition:
                 type: Kubernetes
