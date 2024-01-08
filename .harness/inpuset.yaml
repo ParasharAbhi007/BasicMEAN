@@ -80,4 +80,9 @@ pipeline:
       type: String
       description: ""
       required: false
-      value: <+input>
+      value: <+input>.allowedValues(ddd,fdkfd,dfkfnld)
+    - name: dknfdk
+      type: String
+      description: ""
+      required: false
+      value: <+input>.allowedValues(dmndk,djf;d,dfjbf)
