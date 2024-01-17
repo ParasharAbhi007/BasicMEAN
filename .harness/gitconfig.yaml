@@ -42,6 +42,9 @@ pipeline:
                         script: echo "hey"
                     environmentVariables: []
                     outputVariables: []
+                    delegateSelectors:
+                      - abhidelegate
+                    includeInfraSelectors: false
                   timeout: 10m
             rollbackSteps:
               - step:
