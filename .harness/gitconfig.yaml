@@ -6,6 +6,31 @@ pipeline:
   tags: {}
   stages:
     - stage:
+        name: gjhgjh
+        identifier: gjhgjh
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: knjkjhn
+                  identifier: knjkjhn
+                  type: HarnessApproval
+                  timeout: 1d
+                  spec:
+                    approvalMessage: |-
+                      Please review the following information
+                      and approve the pipeline progression
+                    includePipelineExecutionHistory: true
+                    approvers:
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                      userGroups: <+input>
+                    isAutoRejectEnabled: false
+                    approverInputs: []
+        tags: {}
+    - stage:
         name: dep
         identifier: dep
         description: ""
