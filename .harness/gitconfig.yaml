@@ -77,7 +77,21 @@ pipeline:
           org: default
           pipeline: gitversoningpoc
           project: CIBootcampAbhi
-          inputs: {}
+          inputs:
+            identifier: gitversoningpoc
+            stages:
+              - stage:
+                  identifier: dasda
+                  type: Approval
+                  spec:
+                    execution:
+                      steps:
+                        - step:
+                            identifier: dasd
+                            type: HarnessApproval
+                            spec:
+                              approvers:
+                                userGroups: <+input>
         tags: {}
   variables:
     - name: test
