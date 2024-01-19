@@ -78,6 +78,7 @@ pipeline:
           pipeline: gitversoningpoc
           project: CIBootcampAbhi
           inputs: {}
+        tags: {}
   variables:
     - name: test
       type: String
