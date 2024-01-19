@@ -68,6 +68,16 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: chain
+        identifier: chain
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: gitversoningpoc
+          project: CIBootcampAbhi
+          inputs: {}
   variables:
     - name: test
       type: String
