@@ -9,33 +9,6 @@ template:
   spec:
     stages:
       - stage:
-          name: test1
-          identifier: test1
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    type: ShellScript
-                    name: ShellScript_1
-                    identifier: ShellScript_1
-                    spec:
-                      shell: Bash
-                      onDelegate: true
-                      source:
-                        type: Inline
-                        spec:
-                          script: echo "hi"
-                      environmentVariables:
-                        - name: tf_scan
-                          type: String
-                          value: <+input>.allowedValues(true,false)
-                      outputVariables: []
-                    timeout: 10m
-          tags: {}
-          variables: []
-      - stage:
           name: test2
           identifier: test2
           description: ""
@@ -58,3 +31,6 @@ template:
                       outputVariables: []
                     timeout: 10m
           tags: {}
+          when:
+            pipelineStatus: Success
+            condition: <+input>
