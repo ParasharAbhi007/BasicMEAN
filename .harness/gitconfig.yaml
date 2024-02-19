@@ -63,6 +63,17 @@ pipeline:
                       - abhidelegate
                     includeInfraSelectors: false
                   timeout: 10m
+                  strategy:
+                    matrix:
+                      browser:
+                        - chrome
+                        - safari
+                        - firefox
+                      os:
+                        - macos
+                        - windows
+                        - linux
+                      maxConcurrency: 3
               - step:
                   type: HarnessApproval
                   name: HarnessApproval_1
