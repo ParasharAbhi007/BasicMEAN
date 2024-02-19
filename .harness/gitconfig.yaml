@@ -44,10 +44,6 @@ pipeline:
                         - chrome
                         - safari
                         - firefox
-                      os:
-                        - macos
-                        - windows
-                        - linux
                       maxConcurrency: 3
             rollbackSteps:
               - step:
