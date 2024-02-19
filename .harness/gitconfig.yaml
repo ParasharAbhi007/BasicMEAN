@@ -31,7 +31,9 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo "hey"
+                        script: |-
+                          echo "hey"
+                          exit 1
                     environmentVariables: []
                     outputVariables: []
                     delegateSelectors:
