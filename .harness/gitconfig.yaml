@@ -47,7 +47,19 @@ pipeline:
                         - safari
                         - firefox
                         - sfar
-                      maxConcurrency: 1
+                        - djbd
+                        - dfdf
+                        - djfnfd
+                        - jsdfnk
+                        - djsnfkd
+                        - dfkndfk
+                        - jdnfjd
+                        - fnjn
+                        - jdnffj
+                        - kfdnfgk
+                        - ksdnfkf
+                        - sdnfdk
+                      maxConcurrency: 10
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
