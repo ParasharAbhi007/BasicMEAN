@@ -54,7 +54,7 @@ pipeline:
                         errors:
                           - AllErrors
                         action:
-                          type: Ignore
+                          type: MarkAsFailure
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
