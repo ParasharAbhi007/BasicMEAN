@@ -48,7 +48,6 @@ pipeline:
                         - firefox
                         - sfar
                       maxConcurrency: 1
-                      failOnError: false
                   failureStrategies:
                     - onFailure:
                         errors:
