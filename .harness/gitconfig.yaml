@@ -6,31 +6,6 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: gjhgjh
-        identifier: gjhgjh
-        description: ""
-        type: Approval
-        spec:
-          execution:
-            steps:
-              - step:
-                  name: knjkjhn
-                  identifier: knjkjhn
-                  type: HarnessApproval
-                  timeout: 1d
-                  spec:
-                    approvalMessage: |-
-                      Please review the following information
-                      and approve the pipeline progression
-                    includePipelineExecutionHistory: true
-                    approvers:
-                      minimumCount: 1
-                      disallowPipelineExecutor: false
-                      userGroups: <+input>
-                    isAutoRejectEnabled: false
-                    approverInputs: []
-        tags: {}
-    - stage:
         name: dep
         identifier: dep
         description: ""
@@ -74,21 +49,6 @@ pipeline:
                         - windows
                         - linux
                       maxConcurrency: 3
-              - step:
-                  type: HarnessApproval
-                  name: HarnessApproval_1
-                  identifier: HarnessApproval_1
-                  spec:
-                    approvalMessage: Please review the following information and approve the pipeline progression
-                    includePipelineExecutionHistory: true
-                    isAutoRejectEnabled: false
-                    approvers:
-                      userGroups:
-                        - org.orgabhiug
-                      minimumCount: 1
-                      disallowPipelineExecutor: false
-                    approverInputs: []
-                  timeout: 1d
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
@@ -104,31 +64,6 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
-    - stage:
-        name: chain
-        identifier: chain
-        description: ""
-        type: Pipeline
-        spec:
-          org: default
-          pipeline: gitversoningpoc
-          project: CIBootcampAbhi
-          inputs:
-            identifier: gitversoningpoc
-            stages:
-              - stage:
-                  identifier: dasda
-                  type: Approval
-                  spec:
-                    execution:
-                      steps:
-                        - step:
-                            identifier: dasd
-                            type: HarnessApproval
-                            spec:
-                              approvers:
-                                userGroups: <+input>
-        tags: {}
   variables:
     - name: test
       type: String
