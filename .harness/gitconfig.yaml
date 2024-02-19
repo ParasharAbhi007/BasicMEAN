@@ -44,6 +44,7 @@ pipeline:
                         - chrome
                         - safari
                         - firefox
+                        - sfar
                       maxConcurrency: 3
             rollbackSteps:
               - step:
