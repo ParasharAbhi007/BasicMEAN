@@ -47,7 +47,7 @@ pipeline:
                         - safari
                         - firefox
                         - sfar
-                      maxConcurrency: 3
+                      maxConcurrency: 1
                       failOnError: false
                   failureStrategies:
                     - onFailure:
