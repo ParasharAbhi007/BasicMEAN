@@ -46,6 +46,12 @@ pipeline:
                         - firefox
                         - sfar
                       maxConcurrency: 3
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Ignore
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
