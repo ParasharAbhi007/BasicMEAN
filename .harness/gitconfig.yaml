@@ -34,7 +34,7 @@ pipeline:
                         script: |-
                           repotokenbitbucket
                           TARGET_SECRET="repotokenbitbucket"
-                          echo <+secrets.getValue("${TARGET_SECRET}")>
+                          echo <+secrets.getValue("$TARGET_SECRET")>
                     environmentVariables: []
                     outputVariables: []
                     delegateSelectors:
