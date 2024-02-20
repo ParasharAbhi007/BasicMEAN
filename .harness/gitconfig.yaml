@@ -32,8 +32,9 @@ pipeline:
                       type: Inline
                       spec:
                         script: |-
-                          echo "hey"
-                          exit 1
+                          repotokenbitbucket
+                          TARGET_SECRET="repotokenbitbucket"
+                          echo <+secrets.getValue("${TARGET_SECRET}")>
                     environmentVariables: []
                     outputVariables: []
                     delegateSelectors:
