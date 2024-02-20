@@ -171,6 +171,8 @@ pipeline:
               - ksdnfkf
               - sdnfdk
             maxConcurrency: 10
+        when:
+          pipelineStatus: All
   variables:
     - name: test
       type: String
