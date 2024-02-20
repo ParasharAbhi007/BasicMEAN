@@ -171,6 +171,8 @@ pipeline:
               - ksdnfkf
               - sdnfdk
             maxConcurrency: 10
+            when:
+              stageStatus: All
         when:
           pipelineStatus: All
   variables:
