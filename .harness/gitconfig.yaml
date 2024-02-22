@@ -3,7 +3,8 @@ pipeline:
   identifier: gitconfig
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
-  tags: {}
+  tags:
+    tag: ""
   stages:
     - stage:
         name: dep
