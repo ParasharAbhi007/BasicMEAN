@@ -176,6 +176,37 @@ pipeline:
               stageStatus: All
         when:
           pipelineStatus: All
+    - stage:
+        name: pr
+        identifier: pr
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          gitOpsEnabled: true
+          service:
+            serviceRef: testprgitops
+          execution:
+            steps:
+              - step:
+                  type: GitOpsUpdateReleaseRepo
+                  name: Update Release Repo
+                  identifier: updateReleaseRepo
+                  timeout: 10m
+                  spec:
+                    variables: []
+                    prTitle: testpr
+            rollbackSteps: []
+          environment:
+            environmentRef: ECS_INFRA
+            deployToAll: true
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
   variables:
     - name: test
       type: String
