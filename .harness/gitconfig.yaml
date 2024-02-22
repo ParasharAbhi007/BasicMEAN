@@ -213,3 +213,9 @@ pipeline:
       description: ""
       required: false
       value: <+input>
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.AbhinandanGit
+        repoName: BasicMean
+        build: <+input>
