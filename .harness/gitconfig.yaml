@@ -207,6 +207,8 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+        when:
+          pipelineStatus: All
   variables:
     - name: test
       type: String
