@@ -1,0 +1,39 @@
+template:
+  name: templatepipeline
+  identifier: templatepipeline
+  type: Pipeline
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: test2
+          identifier: test2
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      source:
+                        type: Inline
+                        spec:
+                          script: echo "hey"
+                      environmentVariables: []
+                      outputVariables: []
+                      executionTarget: {}
+                      outputAlias:
+                        key: res
+                        scope: Pipeline
+                    timeout: 10m
+          tags: {}
+          when:
+            pipelineStatus: Success
+            condition: <+input>
+  versionLabel: "2"
