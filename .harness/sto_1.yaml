@@ -1,0 +1,37 @@
+template:
+  name: sto
+  identifier: sto
+  versionLabel: "1"
+  type: Stage
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    type: SecurityTests
+    spec:
+      cloneCodebase: false
+      caching:
+        enabled: false
+        paths: []
+      platform:
+        os: Linux
+        arch: Amd64
+      runtime:
+        type: Cloud
+        spec: {}
+      execution:
+        steps:
+          - step:
+              type: Security
+              name: Security_1
+              identifier: Security_1
+              spec:
+                privileged: true
+                settings:
+                  policy_type: orchestratedScan
+                  scan_type: repository
+                  product_name: " ,."
+                  product_config_name: ", .,"
+    when:
+      pipelineStatus: Success
+      condition: <+input>
