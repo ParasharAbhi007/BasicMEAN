@@ -1,0 +1,24 @@
+service:
+  name: v2new
+  identifier: v2new
+  tags: {}
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: DockerTestk8
+                imagePath: <+input>
+                tag: "covetrus-gts/<+project.name>/<+project.name>    "
+              identifier: artifactss
+              type: DockerRegistry
+            - spec:
+                connectorRef: AbhinandanAWS
+                imagePath: "covetrus-gts/<+project.name>/<+project.name>    "
+                tag: <+input>
+                region: us-east-1
+              identifier: ecrtest
+              type: Ecr
+    type: Kubernetes
