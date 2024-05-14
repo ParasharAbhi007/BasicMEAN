@@ -1,0 +1,21 @@
+service:
+  name: NewECS
+  identifier: NewECS
+  serviceDefinition:
+    type: ECS
+    spec:
+      manifests:
+        - manifest:
+            identifier: mainfest
+            type: EcsTaskDefinition
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: account.AbhinandanGit
+                  gitFetchType: Branch
+                  paths:
+                    - default-k8s-manifests/Manifests/Files/templates
+                  repoName: harness-docs
+                  branch: main
+  gitOpsEnabled: false
