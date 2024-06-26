@@ -1,11 +1,27 @@
 inputSet:
   name: dfdrf
+  tags: {}
   identifier: dfdrf
   orgIdentifier: AbhiOrg
   projectIdentifier: CSETest1
   pipeline:
     identifier: gitconfig
+    stages:
+      - stage:
+          identifier: dep
+          type: Deployment
+          spec:
+            environment:
+              serviceOverrideInputs:
+                variables:
+                  - name: over
+                    type: String
+                    value: <+input>
     variables:
       - name: test
         type: String
         value: dd
+    properties:
+      ci:
+        codebase:
+          build: <+input>
