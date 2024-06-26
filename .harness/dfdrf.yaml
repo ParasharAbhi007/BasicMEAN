@@ -5,38 +5,6 @@ inputSet:
   projectIdentifier: CSETest1
   pipeline:
     identifier: gitconfig
-    stages:
-      - stage:
-          identifier: gjhgjh
-          type: Approval
-          spec:
-            execution:
-              steps:
-                - step:
-                    identifier: knjkjhn
-                    type: HarnessApproval
-                    spec:
-                      approvers:
-                        userGroups: <+input>
-      - stage:
-          identifier: chain
-          type: Pipeline
-          spec:
-            inputs:
-              identifier: gitversoningpoc
-              stages:
-                - stage:
-                    identifier: dasda
-                    type: Approval
-                    spec:
-                      execution:
-                        steps:
-                          - step:
-                              identifier: dasd
-                              type: HarnessApproval
-                              spec:
-                                approvers:
-                                  userGroups: <+input>
     variables:
       - name: test
         type: String
