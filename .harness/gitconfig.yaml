@@ -14,17 +14,17 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: K8new
+            serviceRef: canarysrv
           environment:
-            environmentRef: canaryenv
-            environmentInputs:
+            environmentRef: ECS_INFRA
+            serviceOverrideInputs:
               variables:
-                - name: test
+                - name: over
                   type: String
                   value: <+input>
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: fe
+              - identifier: ee
           execution:
             steps:
               - step:
