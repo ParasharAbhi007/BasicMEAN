@@ -16,10 +16,15 @@ pipeline:
           service:
             serviceRef: K8new
           environment:
-            environmentRef: K8Env
+            environmentRef: canaryenv
+            environmentInputs:
+              variables:
+                - name: test
+                  type: String
+                  value: <+input>
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: K8INFRA
+              - identifier: fe
           execution:
             steps:
               - step:
