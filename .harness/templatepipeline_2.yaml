@@ -4,7 +4,8 @@ template:
   type: Pipeline
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
-  tags: {}
+  tags:
+    tag: tag
   spec:
     stages:
       - stage:
