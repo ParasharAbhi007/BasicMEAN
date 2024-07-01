@@ -15,7 +15,9 @@ service:
                   connectorRef: account.AbhinandanGit
                   gitFetchType: Branch
                   paths:
-                    - default-k8s-manifests/Manifests/Files/templates
+                    - defaults-k8s-manifests/Manifests/Files/templates
                   repoName: harness-docs
                   branch: main
   gitOpsEnabled: false
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
