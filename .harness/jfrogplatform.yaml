@@ -1,5 +1,51 @@
 service:
-  name: jfrogplatform
+  name: jfrog_platform
   identifier: jfrogplatform
   orgIdentifier: AbhiOrg
   projectIdentifier: CSETest1
+  description: ""
+  tags: {}
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: jfrogplatform
+            type: HelmChart
+            spec:
+              store:
+                type: Http
+                spec:
+                  connectorRef: <+input>
+              chartName: jfrog-platform
+              chartVersion: <+input>
+              subChartPath: ""
+              helmVersion: V3
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+              fetchHelmChartMetadata: false
+              commandFlags:
+                - commandType: Upgrade
+                  flag: "--debug"
+        - manifest:
+            identifier: valuesjfrogplatform
+            type: Values
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: <+input>
+                  gitFetchType: Branch
+                  paths:
+                    - helm/org/shared/values-base.yaml
+                    - helm/org/shared/values-harness-variables.yaml
+                    - helm/org/<+serviceVariables.environment_values_path>/values.yaml
+                    - helm/org/<+serviceVariables.environment_values_path>/values-harness-secrets.yaml
+                  repoName: cicd-binaryrepo-aws-deploy
+                  branch: <+input>
+      variables:
+        - name: environment_values_path
+          type: String
+          description: Environment Helm Values Path
+          required: true
+          value: <+input>.allowedValues(shared/default/dev,shared/arti/dev,shared/arti/test,shared/arti/prod)
+    type: NativeHelm
