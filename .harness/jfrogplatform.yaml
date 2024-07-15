@@ -26,22 +26,6 @@ service:
               commandFlags:
                 - commandType: Upgrade
                   flag: "--debug"
-        - manifest:
-            identifier: valuesjfrogplatform
-            type: Values
-            spec:
-              store:
-                type: Github
-                spec:
-                  connectorRef: <+input>
-                  gitFetchType: Branch
-                  paths:
-                    - helm/org/shared/values-base.yaml
-                    - helm/org/shared/values-harness-variables.yaml
-                    - helm/org/<+serviceVariables.environment_values_path>/values.yaml
-                    - helm/org/<+serviceVariables.environment_values_path>/values-harness-secrets.yaml
-                  repoName: cicd-binaryrepo-aws-deploy
-                  branch: <+input>
       variables:
         - name: environment_values_path
           type: String
