@@ -220,7 +220,7 @@ pipeline:
       type: String
       description: ""
       required: false
-      value: <+input>
+      value: dfdrf
   properties:
     ci:
       codebase:
