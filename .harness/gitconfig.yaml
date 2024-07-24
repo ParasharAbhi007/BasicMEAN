@@ -19,7 +19,7 @@ pipeline:
             environmentRef: ECS_INFRA
             serviceOverrideInputs:
               variables:
-                - name: over
+                - name: ocer3
                   type: String
                   value: <+input>
             deployToAll: false
