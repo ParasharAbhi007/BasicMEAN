@@ -14,7 +14,15 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: canarysrv
+            serviceRef: k8service
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
           environment:
             environmentRef: ECS_INFRA
             serviceOverrideInputs:
