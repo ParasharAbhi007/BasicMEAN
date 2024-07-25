@@ -25,11 +25,6 @@ pipeline:
                       sources: <+input>
           environment:
             environmentRef: ECS_INFRA
-            serviceOverrideInputs:
-              variables:
-                - name: ocer3
-                  type: String
-                  value: <+input>
             deployToAll: false
             infrastructureDefinitions:
               - identifier: ee
