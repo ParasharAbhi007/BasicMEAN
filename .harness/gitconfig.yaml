@@ -228,7 +228,7 @@ pipeline:
       type: String
       description: ""
       required: false
-      value: dfdrf
+      value: <+input>
   properties:
     ci:
       codebase:
