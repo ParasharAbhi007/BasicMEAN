@@ -22,12 +22,11 @@ template:
                   type: Inline
                   spec:
                     script: echo "he"
-                environmentVariables:
-                  - name: test
-                    type: String
-                    value: <+input>
-                  - name: test2
-                    type: String
-                    value: <+input>
+                environmentVariables: []
                 outputVariables: []
                 executionTarget: {}
+      environment:
+        environmentRef: ECS_INFRA
+        deployToAll: false
+        infrastructureDefinitions:
+          - identifier: ee
