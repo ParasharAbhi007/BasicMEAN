@@ -18,17 +18,10 @@ template:
               timeout: 10m
               spec:
                 shell: Bash
-                onDelegate: true
                 source:
                   type: Inline
                   spec:
-                    script: |
-                      echo "kubernetes cluster name: "<+variable.EKS_CLUSTER_NAME>  
-                      git clone git@ghe.coxautoinc.com:XTime/eks-deployment.git
-                      cd eks-deployment
-                      cd <+variable.org.testvar>
-                      cd <+variable.test123>
-                      ls
+                    script: echo "he"
                 environmentVariables:
                   - name: test
                     type: String
@@ -37,3 +30,4 @@ template:
                     type: String
                     value: <+input>
                 outputVariables: []
+                executionTarget: {}
