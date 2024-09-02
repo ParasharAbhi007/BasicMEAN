@@ -28,6 +28,7 @@ template:
                           script: |-
                             echo "he"
                             test1=test2
+                            echo "<+pipeline.stages.stpgrp.steps.stpgrp.steps.ShellScript_1.status>"
                       environmentVariables: []
                       outputVariables:
                         - name: test1
