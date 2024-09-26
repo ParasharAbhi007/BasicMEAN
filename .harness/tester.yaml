@@ -95,7 +95,7 @@ pipeline:
       type: String
       description: comma-separated, e.g. 'prod1,prod2'. Empty field will deploy everything
       required: false
-      value: <+input>
+      value: jm
     - name: Applications
       type: String
       description: ""
