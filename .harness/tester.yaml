@@ -45,7 +45,7 @@ pipeline:
       type: String
       description: ""
       required: true
-      value: 24.09.73.c239c48
+      value: <+input>
     - name: ENV
       type: String
       description: ""
