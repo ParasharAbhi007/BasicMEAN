@@ -40,7 +40,7 @@ pipeline:
       type: String
       description: ""
       required: false
-      value: bkt-d-apigee-proxy-bundles/bundle
+      value: <+input>
     - name: bundleId
       type: String
       description: ""
