@@ -90,27 +90,27 @@ pipeline:
       type: String
       description: ""
       required: false
-      value: false.allowedValues(true,false)
+      value: <+input>
     - name: ProductList
       type: String
       description: comma-separated, e.g. 'prod1,prod2'. Empty field will deploy everything
       required: false
-      value: ""
+      value: <+input>
     - name: Applications
       type: String
       description: ""
       required: false
-      value: false.allowedValues(true,false)
+      value: <+input>
     - name: deployments
       type: String
       description: ""
       required: false
-      value: deployments.yaml
+      value: <+input>
     - name: tst_project
       type: String
       description: ""
       required: false
-      value: gfp-t-apigee
+      value: <+input>
     - name: dev_project
       type: String
       description: ""
