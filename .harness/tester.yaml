@@ -1,0 +1,128 @@
+pipeline:
+  name: test123
+  identifier: tester
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.AbhinandanGit
+        repoName: charts
+        build: <+input>
+  stages:
+    - stage:
+        name: gf
+        identifier: gf
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: echo hello
+  variables:
+    - name: bundlePath
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: bundleId
+      type: String
+      description: ""
+      required: true
+      value: 24.09.73.c239c48
+    - name: ENV
+      type: String
+      description: ""
+      required: false
+      value: tst.allowedValues(tst,tst-private)
+    - name: Targets
+      type: String
+      description: ""
+      required: false
+      value: false.allowedValues(true,false)
+    - name: Sharedflows
+      type: String
+      description: ""
+      required: false
+      value: false.allowedValues(true,false)
+    - name: SharedFlowsList
+      type: String
+      description: specify the list of Sharedflows want to deploy with , separated values. If no value specified it will deploy all
+      required: false
+      value: ""
+    - name: KVMs
+      type: String
+      description: ""
+      required: false
+      value: false.allowedValues(true,false)
+    - name: APIs
+      type: String
+      description: ""
+      required: false
+      value: true.allowedValues(true,false)
+    - name: APIsList
+      type: String
+      description: specify the list of APIs you want to deploy with , separated values. If no value specified it will deploy all.
+      required: false
+      value: SAP-Financial-Primary-Data-Ingress
+    - name: Flowhooks
+      type: String
+      description: ""
+      required: false
+      value: false.allowedValues(true,false)
+    - name: Products
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: ProductList
+      type: String
+      description: comma-separated, e.g. 'prod1,prod2'. Empty field will deploy everything
+      required: false
+      value: jm
+    - name: Applications
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: deployments
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: tst_project
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: dev_project
+      type: String
+      description: ""
+      required: false
+      value: gfp-d-apigee
+    - name: sa_apigee
+      type: String
+      description: ""
+      required: false
+      value: sa-proxy@gfp-t-apigee.iam.gserviceaccount.com
+    - name: cd
+      type: String
+      description: ""
+      required: false
+      value: "<+(<+pipeline.variables.KVMs> == \"true\" ? \"kvms:\" : \"\")> + <+(<+pipeline.variables.APIs> == \"true\" ? \"apis:\" : \"\")> + <+(<+pipeline.variables.Applications> == \"true\" ? \"apps:\" : \"\")> + <+(<+pipeline.variables.Flowhooks> == \"true\" ? \"flow:\" : \"\")> + <+(<+pipeline.variables.Products> == \"true\" ? \"prods:\" : \"\")> + <+(<+pipeline.variables.Sharedflows> == \"true\" ? \"shared:\" : \"\")> + <+(<+pipeline.variables.Targets> == \"true\" ? \"targets:\" : \"\")>"
