@@ -43,5 +43,5 @@ template:
           tags: {}
           template:
             templateRef: customstage
-            versionLabel: "1"
+            versionLabel: "2"
   versionLabel: "2"
