@@ -27,7 +27,7 @@ template:
                           script: |-
                             echo "he"
                             test1=test2
-                            echo "<+pipeline.stdages.stpgrp.steps.stpgrp.steps.ShellScript_1.status>"
+                            echo "<+pipeline.stdagdes.stpgrp.steps.stpgrp.steps.ShellScript_1.status>"
                             echo "nkl"
                             echo "<+pipeline.stages.stpgrp.spec.execution.steps.stpgrp.steps.ShellScript_1.status>"
                       environmentVariables: []
