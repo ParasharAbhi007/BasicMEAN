@@ -1,0 +1,44 @@
+template:
+  name: customstage
+  identifier: customstage
+  type: Stage
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - stepGroup:
+              name: stpgrp
+              identifier: stpgrp
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    timeout: 10m
+                    spec:
+                      shell: Bash
+                      source:
+                        type: Inline
+                        spec:
+                          script: |-
+                            echo "he"
+                            test1=test2
+                            echo "<+pipeline.stdages.stpgrp.steps.stpgrp.steps.ShellScript_1.status>"
+                            echo "nkl"
+                            echo "<+pipeline.stages.stpgrp.spec.execution.steps.stpgrp.steps.ShellScript_1.status>"
+                      environmentVariables: []
+                      outputVariables:
+                        - name: test1
+                          type: String
+                          value: test1
+                      executionTarget: {}
+      environment:
+        environmentRef: ECS_INFRA
+        deployToAll: false
+        infrastructureDefinitions:
+          - identifier: ee
+  versionLabel: "2"
