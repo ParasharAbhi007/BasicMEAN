@@ -37,4 +37,11 @@ template:
           when:
             pipelineStatus: Success
             condition: <+input>
+      - stage:
+          name: df
+          identifier: df
+          tags: {}
+          template:
+            templateRef: customstage
+            versionLabel: "1"
   versionLabel: "2"
