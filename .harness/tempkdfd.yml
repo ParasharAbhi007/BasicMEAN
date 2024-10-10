@@ -1,0 +1,30 @@
+template:
+  name: buildss
+  identifier: buildss
+  versionLabel: "1"
+  type: Stage
+  tags: {}
+  spec:
+    type: CI
+    spec:
+      cloneCodebase: false
+      caching:
+        enabled: false
+        paths: []
+      platform:
+        os: Linux
+        arch: Amd64
+      runtime:
+        type: Cloud
+        spec: {}
+      execution:
+        steps:
+          - step:
+              type: BuildAndPushDockerRegistry
+              name: BuildAndPushDockerRegistry_1
+              identifier: BuildAndPushDockerRegistry_1
+              spec:
+                connectorRef: account.harnessImage
+                repo: <+input>
+                tags:
+                  - nginx
