@@ -1,0 +1,28 @@
+pipeline:
+  name: ff2
+  identifier: ff2
+  projectIdentifier: FF_Test
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: dd
+        identifier: dd
+        description: ""
+        type: FeatureFlag
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: FlagConfiguration
+                  name: FlagConfiguration_1
+                  identifier: FlagConfiguration_1
+                  spec:
+                    feature: testfindl
+                    environment: sdkkey
+                    instructions:
+                      - identifier: SetOnVariationIdentifier
+                        type: SetOnVariation
+                        spec:
+                          variation: "true"
+                  timeout: 10m
