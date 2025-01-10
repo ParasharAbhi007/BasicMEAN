@@ -40,3 +40,19 @@ pipeline:
           org: AbhiOrg
           pipeline: pipe1
           project: CSETest1
+          inputs:
+            identifier: pipe1
+            stages:
+              - stage:
+                  identifier: name
+                  type: CI
+                  spec:
+                    execution:
+                      steps:
+                        - step:
+                            identifier: df
+                            template:
+                              templateInputs:
+                                type: Run
+                                spec:
+                                  image: <+input>.default("artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2")
