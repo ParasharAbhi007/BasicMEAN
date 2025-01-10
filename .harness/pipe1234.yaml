@@ -50,9 +50,10 @@ pipeline:
                     execution:
                       steps:
                         - step:
-                            identifier: df
+                            identifier: "n"
                             template:
                               templateInputs:
                                 type: Run
                                 spec:
                                   image: <+input>.default("artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2")
+        tags: {}
