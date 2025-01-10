@@ -31,3 +31,12 @@ pipeline:
                   spec:
                     shell: Sh
                     command: df
+    - stage:
+        name: df
+        identifier: df
+        description: ""
+        type: Pipeline
+        spec:
+          org: AbhiOrg
+          pipeline: pipe1
+          project: CSETest1
