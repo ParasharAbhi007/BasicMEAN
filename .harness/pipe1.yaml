@@ -32,12 +32,12 @@ pipeline:
                     shell: Sh
                     command: dc
               - step:
-                  name: df
-                  identifier: df
+                  name: "n "
+                  identifier: "n"
                   template:
                     templateRef: account.SEAL_AppSec_Scan_Step_Template
-                    versionLabel: "1.34"
-                    gitBranch: main
+                    versionLabel: "1.2"
+                    gitBranch: ParasharAbhi007-patch-1
                     templateInputs:
                       type: Run
                       spec:
