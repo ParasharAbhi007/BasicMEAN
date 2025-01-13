@@ -1,0 +1,28 @@
+inputSet:
+  name: new inps
+  identifier: new_inps
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
+  pipeline:
+    identifier: pipe1234
+    stages:
+      - stage:
+          identifier: df
+          type: Pipeline
+          spec:
+            inputs:
+              identifier: pipe1
+              stages:
+                - stage:
+                    identifier: name
+                    type: CI
+                    spec:
+                      execution:
+                        steps:
+                          - step:
+                              identifier: "n"
+                              template:
+                                templateInputs:
+                                  type: Run
+                                  spec:
+                                    image: artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2
