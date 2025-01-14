@@ -31,6 +31,17 @@ pipeline:
                   spec:
                     shell: Sh
                     command: df
+              - step:
+                  name: newstg
+                  identifier: newstg
+                  template:
+                    templateRef: account.SEAL_AppSec_Scan_Step_Template
+                    versionLabel: "1.34"
+                    gitBranch: main
+                    templateInputs:
+                      type: Run
+                      spec:
+                        image: <+input>.default("artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2")
     - stage:
         name: df
         identifier: df
