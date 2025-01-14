@@ -30,7 +30,6 @@ pipeline:
                   template:
                     templateRef: account.SEAL_AppSec_Scan_Step_Template
                     versionLabel: "1.34"
-                    gitBranch: main
                     templateInputs:
                       type: Run
                       spec:
