@@ -42,3 +42,13 @@ pipeline:
                       type: Run
                       spec:
                         image: <+input>.default("artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2")
+                        outputVariables:
+                          - name: test
+                            type: String
+                            value: <+input>
+                          - name: test2
+                            type: String
+                            value: <+input>
+                          - name: test3
+                            type: String
+                            value: <+input>
