@@ -70,3 +70,10 @@ pipeline:
                                       type: String
                                       value: <+input>
         tags: {}
+    - stage:
+        name: tem
+        identifier: tem
+        tags: {}
+        template:
+          templateRef: abhishek_temp
+          versionLabel: "1.0"
