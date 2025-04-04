@@ -6,16 +6,23 @@ service:
     spec:
       manifests:
         - manifest:
-            identifier: mainfest
+            identifier: task
             type: EcsTaskDefinition
             spec:
               store:
-                type: Github
+                type: Harness
                 spec:
-                  connectorRef: account.AbhinandanGit
-                  gitFetchType: Branch
-                  paths:
-                    - defaultss-k8s-manifests/Manifests/Files/templates
-                  repoName: harness-docs
-                  branch: main
+                  files:
+                    - /task
+        - manifest:
+            identifier: service_Ecs
+            type: EcsServiceDefinition
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - /manidest
   gitOpsEnabled: false
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
