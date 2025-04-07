@@ -23,6 +23,15 @@ service:
                 spec:
                   files:
                     - /manidest
+      configFiles:
+        - configFile:
+            identifier: configecs
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - /test
   gitOpsEnabled: false
   orgIdentifier: AbhiOrg
   projectIdentifier: CSETest1
