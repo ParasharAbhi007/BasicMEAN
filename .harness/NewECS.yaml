@@ -39,7 +39,7 @@ service:
             - spec:
                 connectorRef: AbhinandanAWS
                 imagePath: jay-demo-ecr
-                tag: <+input>.regex(.*)
+                tag: <+input>
                 digest: ""
                 region: us-east-1
               identifier: fv
