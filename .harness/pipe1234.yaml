@@ -27,6 +27,9 @@ pipeline:
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
+                  strategy:
+                    repeat:
+                      items: <+<+variable.<+stage.variables.serverList>>.split(",")>
         tags: {}
         variables:
           - name: serverList
