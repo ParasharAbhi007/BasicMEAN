@@ -23,7 +23,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo <+pipeline.branch>
+                        script: echo <+<+<+pipeline.branch>=="main">?"prod":<+<+<+pipeline.branch>=="pre-prod">?"preprod":"dev">>
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
