@@ -23,7 +23,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo <+variable.<+stage.variables.serverList>.split(",") >
+                        script: echo <+<+variable.<+stage.variables.serverList>>.split(",")>
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
