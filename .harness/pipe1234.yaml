@@ -28,3 +28,9 @@ pipeline:
                     outputVariables: []
                   timeout: 10m
         tags: {}
+        variables:
+          - name: serverList
+            type: String
+            description: ""
+            required: false
+            value: dev_windowsServers
