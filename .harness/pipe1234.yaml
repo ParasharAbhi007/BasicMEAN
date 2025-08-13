@@ -6,74 +6,25 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: dv
-        identifier: dv
+        name: terst
+        identifier: terst
         description: ""
-        type: CI
+        type: Custom
         spec:
-          cloneCodebase: false
-          caching:
-            enabled: true
-          buildIntelligence:
-            enabled: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - step:
-                  name: newstg
-                  identifier: newstg
-                  template:
-                    templateRef: account.SEAL_AppSec_Scan_Step_Template
-                    versionLabel: "1.34"
-                    templateInputs:
-                      type: Run
-                      spec:
-                        image: <+input>.default("artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2")
-    - stage:
-        name: df
-        identifier: df
-        description: ""
-        type: Pipeline
-        spec:
-          org: AbhiOrg
-          pipeline: pipe1
-          project: CSETest1
-          inputs:
-            identifier: pipe1
-            stages:
-              - stage:
-                  identifier: name
-                  type: CI
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
                   spec:
-                    execution:
-                      steps:
-                        - step:
-                            identifier: "n"
-                            template:
-                              templateInputs:
-                                type: Run
-                                spec:
-                                  image: <+input>.default("artifed.transunion.com/infosec-docker-dev-local/cxone-scanner:alma-1.0.2")
-                                  outputVariables:
-                                    - name: test
-                                      type: String
-                                      value: <+input>
-                                    - name: test2
-                                      type: String
-                                      value: <+input>
-                                    - name: test3
-                                      type: String
-                                      value: <+input>
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo <+pipeline.branch>
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
         tags: {}
-    - stage:
-        name: tem
-        identifier: tem
-        tags: {}
-        template:
-          templateRef: abhishek_temp
-          versionLabel: "1.0"
