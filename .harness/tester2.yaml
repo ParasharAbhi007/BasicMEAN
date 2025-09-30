@@ -1,0 +1,89 @@
+apiVersion: harness.io/v1
+kind: Workflow
+type: component
+identifier: abhiworkflow10
+name: abhiworkflow1.0
+owner: user:account/abhinandan.parashar@harness.io
+spec:
+  output:
+    links:
+    - title: Pipeline Details
+      url: ${{ steps.trigger.output.PipelineUrl }}
+    text:
+      -title: Harness pipeline output variable
+      Variableishere: ${{ pipeline.stages.yes.spec.execution.steps.ShellScript_2.output.outputVariables.abc
+        }}
+      -title2: Harness pipeline output variable
+      Variableisheretwo: ${{ pipeline.stages.custom2.spec.execution.steps.ShellScript_1.output.outputVariables.test
+        }}
+  lifecycle: prod
+  parameters:
+  - title: Component & Access Info
+    required:
+    - component_id
+    - owner
+    - user_ids
+    properties:
+      token:
+        title: Harness Token
+        type: string
+        ui:widget: password
+        ui:field: HarnessAuthToken
+        visible: false
+      service_name:
+        title: Service Name
+        type: string
+        description: Mention the project name
+      component_id:
+        title: Component Name
+        type: string
+        description: Unique name for the component
+        ui:field: EntityNamePicker
+      description:
+        title: Select Environments
+        type: array
+        items:
+          type: string
+          enum:
+          - production
+          - staging
+          - development
+        uniqueItems: true
+        ui:widget: checkboxes
+      owner:
+        title: Owner
+        type: string
+        ui:field: OwnerPicker
+        ui:options:
+          allowedKinds:
+          - Group
+      user_ids:
+        title: Developer User IDs
+        type: array
+        description: List of user IDs (e.g., GitHub usernames or login IDs)
+        items:
+          type: string
+        uniqueItems: true
+  steps:
+  - id: triggerPipeline
+    name: Trigger Harness Pipeline
+    action: trigger:harness-custom-pipeline
+    input:
+      url: https://app.harness.io/ng/account/akx2lmy5SnOFm549xPhFKQ/module/cd/orgs/AbhiOrg/projects/CSETest1/pipelines/newpipe/pipeline-studio/?storeType=INLINE&stageId=custom2&sectionId=EXECUTION
+      apikey: pat.akx2lmy5SnOFm549xPhFKQ.67f8b54b284ac25403d7b8bf.07EfrdM27Qyyatfk3Qya
+      showOutputVariables: true
+  - id: register
+    name: Register in Backstage
+    action: catalog:register
+    input:
+      repoContentsUrl: ${{ steps.triggerPipeline.output.repoContentsUrl }}
+      catalogInfoPath: /catalog-info.yaml
+  ownedBy:
+  - user:account/manisha.choudhary@harness.io
+  - user:account/abhinandan.parashar@harness.io
+metadata:
+  tags:
+  - harness
+  - react
+  - pipeline
+  - onboarding
