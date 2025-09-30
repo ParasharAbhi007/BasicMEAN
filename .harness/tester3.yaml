@@ -1,0 +1,74 @@
+apiVersion: harness.io/v1
+kind: Workflow
+type: harness_project
+identifier: testgithubrepo
+name: test-github-repo
+owner: group:ankit
+spec:
+  output:
+    text:
+    - title: Outputs
+      apiKeySecret: prod-harness-idp-workflow-executor-token
+      content: "url: ${{ steps.provision_workspace.output.PipelineUrl }}\nOutput Variable\
+        \ Name is: ${{ steps.provision_workspace.output['pipeline.stages.idp.spec.execution.steps.Run_1.output.outputVariables.executorName>']\
+        \ }} \nOutput Variable Email is: ${{ steps.provision_workspace.output['pipeline.stages.idp.spec.execution.steps.Run_1.output.outputVariables.executorEmail>']\
+        \ }}"
+  parameters:
+  - title: Fill in some steps
+    required:
+    - serviceAccountToken
+    - githubToken
+    - githubOrg
+    - repoName
+    properties:
+      serviceAccountToken:
+        title: Service Account Token
+        type: string
+        ui:field: HarnessAuthToken
+      githubToken:
+        title: GitHub Token
+        type: string
+        ui:field: Secret
+      githubOrg:
+        title: GitHub Organization
+        type: string
+      repoName:
+        title: GitHub Repository Name
+        type: string
+      name:
+        title: Name
+        type: string
+        description: Unique name of the component
+      owner:
+        title: Owner
+        type: string
+        description: Owner of the component
+        ui:field: OwnerPicker
+        ui:options:
+          catalogFilter:
+            kind: Group
+  steps:
+  - id: check_github_repo
+    name: Validate GitHub Repository Existence
+    action: trigger:harness-custom-pipeline
+    input:
+      url: https://app.harness.io/ng/account/<accountId>/all/orgs/<orgId>/projects/<projectId>/pipelines/validate-github-repo-existence/pipeline-studio/?repoIdentifier=null&branch=null&storeType=INLINE
+      inputset:
+        githubToken: ${{ parameters.githubToken }}
+        githubOrg: ${{ parameters.githubOrg }}
+        repoName: ${{ parameters.repoName }}
+  - id: provision_workspace
+    name: Onboarding user (via Service Account)
+    action: trigger:harness-custom-pipeline
+    input:
+      url: https://app.harness.io/ng/account/akx2lmy5SnOFm549xPhFKQ/all/orgs/default/projects/Abhi/pipelines/testpipelineUAL/pipeline-studio/?repoIdentifier=null&branch=null&storeType=INLINE
+      inputset:
+        triggeredByName: Service Account
+        triggeredByEmail: service-account@harness.io
+      apikey: ${{ parameters.serviceAccountToken }}
+      showOutputVariables: true
+metadata:
+  description: GitHub repo validation using a custom pipeline
+  tags:
+  - harness
+  - '30'
