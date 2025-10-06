@@ -6,7 +6,7 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: dd
+        name: ddchanges
         identifier: dd
         description: ""
         type: FeatureFlag
