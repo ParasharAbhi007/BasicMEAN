@@ -1,5 +1,5 @@
 pipeline:
-  name: ff2
+  name: ff2changed
   identifier: ff234
   projectIdentifier: FF_Test
   orgIdentifier: default
