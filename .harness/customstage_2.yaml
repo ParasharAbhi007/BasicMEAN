@@ -52,4 +52,9 @@ template:
         description: ""
         required: false
         value: <+input>.default(test)
+      - name: test2
+        type: String
+        description: ""
+        required: false
+        value: <+input>.default(test2)
   versionLabel: "2"
