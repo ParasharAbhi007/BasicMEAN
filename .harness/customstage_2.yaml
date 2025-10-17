@@ -41,4 +41,15 @@ template:
         deployToAll: false
         infrastructureDefinitions:
           - identifier: ee
+            inputs:
+              identifier: ee
+              type: KubernetesDirect
+              spec:
+                namespace: <+input>
+    variables:
+      - name: test
+        type: String
+        description: ""
+        required: false
+        value: <+input>.default(test)
   versionLabel: "2"
