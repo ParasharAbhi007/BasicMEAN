@@ -84,3 +84,18 @@ pipeline:
         template:
           templateRef: customstage
           versionLabel: "2"
+          templateInputs:
+            type: Custom
+            spec:
+              environment:
+                infrastructureDefinitions:
+                  - identifier: ee
+                    inputs:
+                      identifier: ee
+                      type: KubernetesDirect
+                      spec:
+                        namespace: <+input>
+            variables:
+              - name: test
+                type: String
+                value: <+input>.default(test)
