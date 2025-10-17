@@ -38,46 +38,6 @@ pipeline:
             required: false
             value: dev_windowsServers
     - stage:
-        name: nws
-        identifier: nws
-        description: ""
-        type: Pipeline
-        spec:
-          org: AbhiOrg
-          pipeline: k8bluegreen
-          project: CSETest1
-          inputs:
-            identifier: k8bluegreen
-            stages:
-              - stage:
-                  identifier: bluegreendeploy
-                  type: Deployment
-                  spec:
-                    serviceConfig:
-                      serviceDefinition:
-                        type: Kubernetes
-                        spec:
-                          manifests:
-                            - manifest:
-                                identifier: manifest
-                                type: K8sManifest
-                                spec:
-                                  store:
-                                    type: Github
-                                    spec:
-                                      branch: <+input>
-                          artifacts:
-                            primary:
-                              type: ArtifactoryRegistry
-                              spec:
-                                tag: <+input>
-                    infrastructure:
-                      environmentRef: <+input>
-            variables:
-              - name: artifact
-                type: String
-                value: <+input>
-    - stage:
         name: wsdfg
         identifier: wsdfg
         tags: {}
