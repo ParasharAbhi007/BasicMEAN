@@ -77,3 +77,10 @@ pipeline:
               - name: artifact
                 type: String
                 value: <+input>
+    - stage:
+        name: wsdfg
+        identifier: wsdfg
+        tags: {}
+        template:
+          templateRef: customstage
+          versionLabel: "2"
