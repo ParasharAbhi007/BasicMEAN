@@ -33,17 +33,7 @@ service:
                   files:
                     - /test
       artifacts:
-        primary:
-          primaryArtifactRef: <+input>
-          sources:
-            - spec:
-                connectorRef: AbhinandanAWS
-                imagePath: jay-demo-ecr
-                tag: <+input>
-                digest: ""
-                region: us-east-1
-              identifier: fv
-              type: Ecr
+        primary: {}
   gitOpsEnabled: false
   orgIdentifier: AbhiOrg
   projectIdentifier: CSETest1
