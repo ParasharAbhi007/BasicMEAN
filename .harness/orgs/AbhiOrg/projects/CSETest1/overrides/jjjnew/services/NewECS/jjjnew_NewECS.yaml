@@ -1,0 +1,6 @@
+overrides:
+  variables:
+    - name: varone
+      type: String
+      value: varone
+      required: false
