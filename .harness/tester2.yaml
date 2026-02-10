@@ -69,7 +69,7 @@ spec:
     name: Trigger Harness Pipeline
     action: trigger:harness-custom-pipeline
     input:
-      url: https://app.harness.io/ng/account/akx2lmy5SnOFm549xPhFKQ/module/cd/orgs/AbhiOrg/projects/CSETest1/pipelines/newpipe/pipeline-studio/?storeType=INLINE&stageId=custom2&sectionId=EXECUTION
+      url: https://app.harness.io/ng/account/akx2lmy5SnOFm549xPhFKQ/module/cd/orgs/AbhiOrg/projects/CSETest1/pipelines/sample_one/pipeline-studio/?storeType=INLINE
       apikey: pat.akx2lmy5SnOFm549xPhFKQ.67f8b54b284ac25403d7b8bf.07EfrdM27Qyyatfk3Qya
       showOutputVariables: true
   - id: register
