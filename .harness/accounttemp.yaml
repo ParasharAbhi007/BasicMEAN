@@ -1,5 +1,5 @@
 pipeline:
-  name: accounttemp
+  name: accounttemps
   identifier: accounttemp
   template:
     templateRef: account.tempacc
