@@ -26,7 +26,7 @@ template:
                         spec:
                           script: |-
                             echo "he"
-                            test1=test2
+                            test1=test
                             echo "<+pipelidne.stdagdes.stpgrp.steps.stpgrp.steps.ShellScript_1.status>"
                             echo "nkl"
                             echo "<+pipeline.stages.stpgrp.spec.execution.steps.stpgrp.steps.ShellScript_1.status>"
