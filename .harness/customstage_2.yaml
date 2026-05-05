@@ -46,6 +46,11 @@ template:
               type: KubernetesDirect
               spec:
                 namespace: <+input>
+        environmentInputs:
+          variables:
+            - name: dbname
+              type: String
+              value: <+input>
     variables:
       - name: test
         type: String
