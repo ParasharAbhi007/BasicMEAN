@@ -8,7 +8,7 @@ pipeline:
     - stage:
         name: ddchangessome
         identifier: dd
-        description: ""
+        description: "test"
         type: FeatureFlag
         spec:
           execution:
